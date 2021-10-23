@@ -2,6 +2,9 @@
 #define NOTATNIK_H
 
 #include <QMainWindow>
+#include <QTextCursor>
+#include "viewwindow.h"
+#include "fontwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Notatnik; }
@@ -14,7 +17,9 @@ class Notatnik : public QMainWindow
 public:
     Notatnik(QWidget *parent = nullptr);
     ~Notatnik();
-    QString filePath;
+    static QString static_textEditContent;
+    static QTextCursor static_cursor;
+    static QString static_selectedText;
 
 private slots:
     void on_actionNowy_triggered();
@@ -37,7 +42,12 @@ private slots:
 
     void on_actionUsun_triggered();
 
+    void on_actionCzcionka_triggered();
+
+    void on_actionPodglad_triggered();
+
 private:
     Ui::Notatnik *ui;
+    QString filePath;
 };
 #endif // NOTATNIK_H

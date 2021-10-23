@@ -54,8 +54,22 @@
     <addaction name="actionZaznacz_wszystko"/>
     <addaction name="actionGodzina_data"/>
    </widget>
+   <widget class="QMenu" name="menuFormatowanie">
+    <property name="title">
+     <string>Formatowanie</string>
+    </property>
+    <addaction name="actionCzcionka"/>
+   </widget>
+   <widget class="QMenu" name="menuPodglad">
+    <property name="title">
+     <string>Podgląd</string>
+    </property>
+    <addaction name="actionPodglad"/>
+   </widget>
    <addaction name="menuPlik"/>
    <addaction name="menuEdycja"/>
+   <addaction name="menuFormatowanie"/>
+   <addaction name="menuPodglad"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionNowy">
@@ -116,6 +130,19 @@
   <action name="actionGodzina_data">
    <property name="text">
     <string>Godzina/data</string>
+   </property>
+  </action>
+  <action name="actionCzcionka">
+   <property name="text">
+    <string>Czcionka...</string>
+   </property>
+  </action>
+  <action name="actionPodglad">
+   <property name="text">
+    <string>Podgląd...</string>
+   </property>
+   <property name="toolTip">
+    <string>Podgląd</string>
    </property>
   </action>
  </widget>

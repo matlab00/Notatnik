@@ -19,6 +19,14 @@ set(PROJECT_SOURCES
         notatnik.cpp
         notatnik.h
         notatnik.ui
+
+        fontwindow.cpp
+        fontwindow.h
+        fontwindow.ui
+
+        viewwindow.cpp
+        viewwindow.h
+        viewwindow.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

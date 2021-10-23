@@ -1,6 +1,7 @@
 #include "notatnik.h"
 #include "./ui_notatnik.h"
 #include <QFileDialog>
+#include <QTextCursor>
 #include <QTextStream>
 #include <QFile>
 
@@ -12,6 +13,10 @@ Notatnik::Notatnik(QWidget *parent)
     ui->setupUi(this);
     this->setCentralWidget(ui->textEdit);
 }
+
+QString Notatnik::static_textEditContent;
+QString Notatnik::static_selectedText;
+QTextCursor Notatnik::static_cursor;
 
 Notatnik::~Notatnik()
 {
@@ -96,6 +101,28 @@ void Notatnik::on_actionWklej_triggered()
 
 void Notatnik::on_actionUsun_triggered()
 {
-    ui->textEdit->textCursor().clearSelection();
+    ui->textEdit->textCursor().insertText(NULL);
 }
+
+
+void Notatnik::on_actionCzcionka_triggered()
+{
+    Notatnik::static_cursor = ui->textEdit->textCursor();
+    Notatnik::static_selectedText = ui->textEdit->textCursor().selectedText();
+
+    FontWindow fontWindow;
+    fontWindow.setModal(true);
+    fontWindow.exec();
+}
+
+void Notatnik::on_actionPodglad_triggered()
+{
+    Notatnik::static_textEditContent = ui->textEdit->toPlainText();
+
+    ViewWindow viewWindow;
+    viewWindow.setModal(true);
+    viewWindow.exec();
+}
+
+
 
